@@ -1,0 +1,15 @@
+<div class="menu">
+    <p><a href="{% url 'home' %}">home</a></p>
+    {% if user.is_authenticated %}
+    <p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Cerrar sesion">
+        </form>
+    </p>
+    <p><a href="{% url 'logout-a' %}">logout</a></p>
+    <p><a href="{% url 'bienvenido' %}">bienvenido</a></p>
+    {% else %}
+    <p><a href="{% url 'login' %}">login</a></p>
+    {% endif %}
+</div>
